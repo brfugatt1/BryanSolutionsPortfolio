@@ -1,12 +1,12 @@
 # Bryan Fugatt – Solutions Portfolio
 
-Welcome! 👋  
+Welcome!   
 This repo showcases selected projects I’ve built that combine **problem-solving, automation, and creative solution design.**  
 They demonstrate how I approach real-world IT and business challenges — the same mindset I bring to consulting engagements.
 
 ---
 
-## 🔧 Featured Projects
+##  Featured Projects
 
 ### [iFix Reset Request App](./iFix-Reset-App)
 - **Problem**: Operators had to walk to the IS office to request HMI resets, causing production downtime.  
@@ -36,7 +36,7 @@ They demonstrate how I approach real-world IT and business challenges — the sa
 
 ---
 
-## 💡 About Me
+##  About Me
 - **Role**: IT Technician → Solutions Consultant  
 - **Focus**: Automation, data workflows, IT/OT integration, and creative prototyping.  
 - **Location**: Arizona, USA  
