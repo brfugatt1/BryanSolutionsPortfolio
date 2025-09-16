@@ -48,51 +48,57 @@ Health check:
 
 3) Replace `src/App.jsx` with this minimal form:
 
-    import { useState } from 'react'
+```jsx
+import { useState } from 'react'
 
-    function App() {
-      const [line, setLine] = useState('')
-      const [station, setStation] = useState('')
-      const [operator, setOperator] = useState('')
-      const [reason, setReason] = useState('')
-      const [resp, setResp] = useState(null)
+function App() {
+  const [line, setLine] = useState('')
+  const [station, setStation] = useState('')
+  const [operator, setOperator] = useState('')
+  const [reason, setReason] = useState('')
+  const [resp, setResp] = useState(null)
 
-      const submit = async (e) => {
-        e.preventDefault()
-        const url = import.meta.env.VITE_BACKEND_URL + '/request-reset'
-        const r = await fetch(url, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ line, station, operator, reason })
-        })
-        const data = await r.json()
-        setResp(data)
-      }
+  const submit = async (e) => {
+    e.preventDefault()
+    const url = import.meta.env.VITE_BACKEND_URL + '/request-reset'
+    const r = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ line, station, operator, reason })
+    })
+    const data = await r.json()
+    setResp(data)
+  }
 
-      return (
-        <div style={{maxWidth: 480, margin: '2rem auto', fontFamily: 'system-ui'}}>
-          <h1>iFix Reset Request</h1>
-          <form onSubmit={submit}>
-            <label>Line
-              <input value={line} onChange={e=>setLine(e.target.value)} required/>
-            </label><br/>
-            <label>Station
-              <input value={station} onChange={e=>setStation(e.target.value)} required/>
-            </label><br/>
-            <label>Operator
-              <input value={operator} onChange={e=>setOperator(e.target.value)} />
-            </label><br/>
-            <label>Reason
-              <textarea value={reason} onChange={e=>setReason(e.target.value)} />
-            </label><br/>
-            <button type="submit">Submit</button>
-          </form>
-          {resp && <pre>{JSON.stringify(resp, null, 2)}</pre>}
-        </div>
-      )
-    }
+  return (
+    <div style={{maxWidth: 480, margin: '2rem auto', fontFamily: 'system-ui'}}>
+      <h1>iFix Reset Request</h1>
+      <form onSubmit={submit}>
+        <label>
+          Line
+          <input value={line} onChange={e=>setLine(e.target.value)} required/>
+        </label><br/>
+        <label>
+          Station
+          <input value={station} onChange={e=>setStation(e.target.value)} required/>
+        </label><br/>
+        <label>
+          Operator
+          <input value={operator} onChange={e=>setOperator(e.target.value)} />
+        </label><br/>
+        <label>
+          Reason
+          <textarea value={reason} onChange={e=>setReason(e.target.value)} />
+        </label><br/>
+        <button type="submit">Submit</button>
+      </form>
+      {resp && <pre>{JSON.stringify(resp, null, 2)}</pre>}
+    </div>
+  )
+}
 
-    export default App
+export default App
+
 
 4) Run the dev server:
     npm run dev
