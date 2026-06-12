@@ -8,10 +8,19 @@ They demonstrate how I approach real-world IT and business challenges — the sa
 
 ##  Featured Projects
 
-### [iFix Reset Request App](./iFix-Reset-App)
-- **Problem**: Operators had to walk to the IS office to request HMI resets, causing production downtime.  
-- **Solution**: Built a web app (React frontend, FastAPI backend) hosted on IIS to automate reset requests.  
-- **Impact**: Reduced downtime ~25%, improved IS team response time, and created a scalable internal app model.  
+iFix Reset Request App
+Problem: Operators had to walk to the IS office to request HMI resets, causing production downtime across manufacturing areas.
+Solution: Built an internal web application hosted on IIS that lets operators submit reset requests directly from the floor. The form captures the area, affected machines, issue descriptions, and an optional photo attachment. Submissions are logged server-side and routed to the IS team via the internal SMTP relay.
+Tech Stack: ASP.NET Web Forms (C#), IIS, Windows Authentication, internal SMTP relay, server-side file logging
+Features:
+
+Area and machine selection with dynamic multi-screen support
+Optional photo upload with server-side storage and secure retrieval handler
+Email notifications to IS group via internal mail relay
+Automatic cleanup of uploads older than 30 days
+Persistent request log for audit trail
+
+Impact: Eliminated floor-to-office trips for reset requests, reduced response time, and created a repeatable internal app model now in active use across production areas.
 
 ---
 
